@@ -1,0 +1,16 @@
+PREFIX=1
+
+if [ "$1" != "" ]; then
+	PREFIX="$1"
+fi
+
+BUILD_FILE=test${PREFIX}.c
+EXECUTE_FILE=test${PREFIX}.exe
+
+gcc ${BUILD_FILE} -o ${EXECUTE_FILE} -I ./
+
+if test -f ${EXECUTE_FILE};
+then
+	./${EXECUTE_FILE}
+	rm -rf ${EXECUTE_FILE}
+fi
